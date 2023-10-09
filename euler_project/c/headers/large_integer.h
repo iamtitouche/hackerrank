@@ -115,4 +115,32 @@ large_integer* create_large_integer_from_str(char *n, int size) {
 	return number;
 }
 
+large_integer* multiply_by_int(large_integer *number, int factor) {
+	int carried_out = 0;
+	int tmp;
+
+	large_integer *result = malloc(sizeof(large_integer));
+	result->length = number->length;
+	result->digits = malloc( result->length * sizeof(int));
+
+	int i;
+	for (i = 0; i < result->length; i++) {
+		tmp = number->digits[i] * factor + carried_out;
+		result->digits[i] = tmp % 10;
+		carried_out = tmp / 10;
+	}
+
+	if (carried_out != 0) {
+		result->length += (int) log10((double) carried_out) + 1;
+		result->digits = realloc(result->digits, result->length * sizeof(int));
+	}
+
+	for (i = i; i < result->length; i++) {
+		result->digits[i] = carried_out % 10;
+		carried_out /= 10;
+	}
+
+	return result;
+}
+
 #endif //PROJET_EULER_LARGE_INTEGER_H
