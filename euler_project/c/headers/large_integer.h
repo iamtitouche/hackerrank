@@ -143,4 +143,28 @@ large_integer* multiply_by_int(large_integer *number, int factor) {
 	return result;
 }
 
+bool palindromic_large_nb(large_integer *number) {
+	for (int i = 0; i < number->length / 2; i++) {
+		if (number->digits[i] != number->digits[number->length - i - 1]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+
+large_integer* binary_from_int(int n) {
+	large_integer *binary = malloc(sizeof(large_integer));
+	binary->length = (int) log2((double) n) + 1;
+	binary->digits = malloc(binary->length * sizeof(int));
+
+	for (int i = 0; i < binary->length; i++) {
+		binary->digits[i] = n % 2;
+		n = n / 2;
+	}
+
+	return binary;
+}
+
 #endif //PROJET_EULER_LARGE_INTEGER_H
