@@ -23,27 +23,26 @@ int main() {
     char *nb_str = malloc(2 * sizeof(char));
 
 
-    for (int i = 0; i < n_lines; i++) {
-        *(lines + i) = calloc(i + 1, sizeof(int));
-        for (int j = 0; j <= i; j++) {
-            fscanf(fptr, "%s ", nb_str);
-	    *(*(lines + i) + j) = atoi(nb_str);
-            printf("%i\n", *(*(lines + i) + j));
-        }
-    }
+	for (int i = 0; i < n_lines; i++) {
+		*(lines + i) = calloc(i + 1, sizeof(int));
+		for (int j = 0; j <= i; j++) {
+			fscanf(fptr, "%s ", nb_str);
+			*(*(lines + i) + j) = atoi(nb_str);
+		}
+	}
+	fclose(fptr);
 
-    for (int i = n_lines - 2; i >= 0; i--) {
+	for (int i = n_lines - 2; i >= 0; i--) {
 	    for (int j = 0; j <= i; j++) {
 		    *(*(lines + i) + j) += max(*(*(lines + i + 1) + j), *(*(lines + i + 1) + j + 1));
 	    }
     }
 
-    printf("%i\n", **lines);
+	printf("Answer : %i\n", **lines);
 
 
 
 
-    fclose(fptr);
 
 
     return EXIT_SUCCESS;
