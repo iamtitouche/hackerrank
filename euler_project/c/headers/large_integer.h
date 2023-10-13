@@ -167,4 +167,66 @@ large_integer* binary_from_int(int n) {
 	return binary;
 }
 
+
+large_integer* large_power_of_int(int n, int power) {
+	large_integer *result = create_large_integer(n);
+
+	for (int i = 1; i < power; i++) {
+		result = multiply_by_int(result, n);
+	}
+
+	return result;
+}
+
+
+bool greater_than(large_integer a, large_integer b) {
+	if (a.length > b.length) {
+		return true;
+	}
+	else if (a.length == b.length) {
+		for (int i = a.length - 1; i >= 0; i--) {
+			if (a.digits[i] > b.digits[i]) {
+				return true;
+			}
+			if (a.digits[i] < b.digits[i]) {
+				return false;
+			}
+		}
+	}
+	return false;
+}
+
+bool equal_to(large_integer a, large_integer b) {
+	if (a.length != b.length) {
+		return false;
+	}
+	if (a.length == b.length) {
+		for (int i = a.length - 1; i >= 0; i--) {
+			if (a.digits[i] != b.digits[i]) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+void print_large_integer(large_integer *number) {
+	for (int i = number->length - 1; i >= 0; i--) {
+		printf("%d", number->digits[i]);
+	}
+	printf("\n");
+}
+
+
+int sum_of_digits(large_integer *number) {
+	int sum = 0;
+
+	for (int i = 0; i < number->length; i++) {
+		sum += number->digits[i];
+	}
+
+	return sum;
+}
+
+
 #endif //PROJET_EULER_LARGE_INTEGER_H
