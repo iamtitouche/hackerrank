@@ -6,12 +6,18 @@
 #include "binomial.h"
 
 
-int main() {
+int main(int argc, char **argv) {
+	if (argc != 2) {
+		printf("One int argument needed");
+		return EXIT_FAILURE;
+	}
+	int n_max = atoi(argv[1]);
+
 	int count = 0;
 
 	ulong binomial_coef;
 
-	for (int n = 1; n <= 100; n++) {
+	for (int n = 1; n <= n_max; n++) {
 		for (int r = 2; r <= n / 2; r++) {
 			binomial_coef = binomial_coefficient(r, n);
 			if (binomial_coef > 1000000) {
@@ -25,7 +31,7 @@ int main() {
 		}
 	}
 
-	printf("Answer %d\n", count);
+	printf("Answer : %d\n", count);
 
 	return EXIT_SUCCESS;
 }
