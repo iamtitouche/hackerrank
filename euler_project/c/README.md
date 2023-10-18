@@ -797,7 +797,7 @@
 ![Static Badge](https://img.shields.io/badge/challenge_797-not_passed-red)
 ![Static Badge](https://img.shields.io/badge/challenge_798-not_passed-red)
 ![Static Badge](https://img.shields.io/badge/challenge_799-not_passed-red)
-![Static Badge](https://img.shields.io/badge/challenge_800-not_passed-red)
+![Static Badge](https://img.shields.io/badge/challenge_800-passed-green)
 ![Static Badge](https://img.shields.io/badge/challenge_801-not_passed-red)
 ![Static Badge](https://img.shields.io/badge/challenge_802-not_passed-red)
 ![Static Badge](https://img.shields.io/badge/challenge_803-not_passed-red)
