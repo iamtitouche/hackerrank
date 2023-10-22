@@ -27,4 +27,13 @@ bool is_abundant(int n) {
 	return n < sum_of_proper_divisors(n);
 }
 
+
+int pgcd(int a, int b) {
+	int r;
+	while (b != 0) {
+		r = a % b; a = b; b = r;
+	}
+	return a;
+}
+
 #endif //PROJET_EULER_DIVISORS_H

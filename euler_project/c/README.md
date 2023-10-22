@@ -30,7 +30,7 @@
 ![Static Badge](https://img.shields.io/badge/challenge_030-not_passed-red)
 ![Static Badge](https://img.shields.io/badge/challenge_031-passed-green)
 ![Static Badge](https://img.shields.io/badge/challenge_032-not_passed-red)
-![Static Badge](https://img.shields.io/badge/challenge_033-not_passed-red)
+![Static Badge](https://img.shields.io/badge/challenge_033-passed-green)
 ![Static Badge](https://img.shields.io/badge/challenge_034-not_passed-red)
 ![Static Badge](https://img.shields.io/badge/challenge_035-not_passed-red)
 ![Static Badge](https://img.shields.io/badge/challenge_036-passed-green)
