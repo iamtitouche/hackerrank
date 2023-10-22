@@ -4,22 +4,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+static int *coins;
 
 
-int recursive_count_combinations(int count, int price, int next_coin, int n_coins, int *coins) {
+//fonction recursive qui compte le nombre de manière sommer à goal - price en utilisant exactement n_coins fois la pièce next_coin et aucune fois les pièces plus grandes.
+int recursive_count_combinations(int goal, int price, int next_coin, int n_coins) {
 	price += *(coins + next_coin) * n_coins;
-	if (price > 200) {
-		return count;
-	}
-	else if (price == 200) {
-		printf("found one\n");
-		return count + 1;
+	if (price == goal) {
+		return 1;
 	}
 	else {
-		if (next_coin < 7) {
-			next_coin++;
-			for (n_coins = 0; n_coins <= 200 - price / *(coins + next_coin); n_coins++) {
-				count = recursive_count_combinations(count, price, next_coin, n_coins, coins);
+		next_coin--;
+		int count = 0;
+		if (next_coin == 0) {
+			count += 1;
+		}
+		else {
+			for (n_coins = 0; n_coins <= (goal - price) / *(coins + next_coin); n_coins++) {
+				count += recursive_count_combinations(goal, price, next_coin, n_coins);
 			}
 		}
 		return count;
@@ -28,7 +30,7 @@ int recursive_count_combinations(int count, int price, int next_coin, int n_coin
 
 
 int main() {
-	int *coins = calloc(8, sizeof(int));
+	coins = calloc(8, sizeof(int));
 
 	*coins = 1;
 	for (int i = 1; i < 8; i++) {
@@ -40,9 +42,9 @@ int main() {
 		}
 	}
 
-	int answer = recursive_count_combinations(0, 0, 0, 1, coins);
+	int answer = recursive_count_combinations(200, 0, 7, 0) + 1;
 
 	printf("Answer : %i\n", answer);
-\
+
 	return EXIT_SUCCESS;
 }
