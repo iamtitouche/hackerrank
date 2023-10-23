@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <math.h>
 #include <stdbool.h>
 
@@ -81,6 +82,33 @@ bool are_anagrams(int n, int m) {
 		}
 	}
 	return true;
+}
+
+
+uint32_t concatenate_int(uint32_t a, uint32_t b) {
+	if (b == 0) {
+		return a * 10;
+	}
+	else if (a == 0) {
+		return b;
+	}
+	int i = 1;
+	while (b / i > 0) {
+		i *= 10;
+		a *= 10;
+	}
+	return a + b;
+}
+
+
+bool is_n_pandigital(int a, int n) {
+	int *digit_count = count_digits(a);
+	for (int i = n; i > 0; i--) {
+		if (digit_count[i] != 1) {
+			return false;
+		}
+	}
+	return digit_count[0] == 0;
 }
 
 #endif //PROJET_EULER_NB_STRING_H
