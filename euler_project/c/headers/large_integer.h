@@ -27,7 +27,7 @@ large_integer* double_value(large_integer *number) {
 
 	for (int i = 0; i < number->length; i++) {
 		tmp = 2 * number->digits[i] + carried_out;
-		result->digits[i] = tmp%10;
+		result->digits[i] = tmp % 10;
 		carried_out = tmp / 10;
 	}
 
@@ -172,8 +172,12 @@ large_integer* large_power_of_int(int n, int power) {
 	large_integer *result = create_large_integer(n);
 
 	for (int i = 1; i < power; i++) {
+		large_integer *tmp = result;
 		result = multiply_by_int(result, n);
+		free(tmp->digits);
+		free(tmp);
 	}
+
 
 	return result;
 }
