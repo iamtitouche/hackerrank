@@ -94,7 +94,7 @@
 ![Static Badge](https://img.shields.io/badge/challenge_094-not_passed-red)
 ![Static Badge](https://img.shields.io/badge/challenge_095-not_passed-red)
 ![Static Badge](https://img.shields.io/badge/challenge_096-not_passed-red)
-![Static Badge](https://img.shields.io/badge/challenge_097-not_passed-red)
+![Static Badge](https://img.shields.io/badge/challenge_097-passed-greed)
 ![Static Badge](https://img.shields.io/badge/challenge_098-not_passed-red)
 ![Static Badge](https://img.shields.io/badge/challenge_099-not_passed-red)
 ![Static Badge](https://img.shields.io/badge/challenge_100-not_passed-red)
